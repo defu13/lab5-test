@@ -20,7 +20,8 @@ class TestOperations(unittest.TestCase):
 
     def test_dividir(self):
         self.assertEqual(dividir(10, 2), 5)
-        self.assertEqual(dividir(5, 0), float('inf'))  # división entre cero
+        with self.assertRaises(ZeroDivisionError):
+            dividir(5, 0)  # división por cero
         self.assertEqual(dividir(0, 5), 0)
 
 if __name__ == '__main__':
